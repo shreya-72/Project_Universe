@@ -1,0 +1,192 @@
+<!-- responsive.....adabtable to any device -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"></script>
+    <script type="module" src="Add_project.js"></script>
+
+    <style>
+        .alert {
+            display: none;
+        }
+    </style>
+    <!-- <script>
+        document.getElementById("material").selectionStart = 0;
+    </script> -->
+    <header class="site-header sticky-top py-1">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Projects
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Multi-Feature-Website-main/Beginner_Projects.html">Beginner projects</a></li>
+                  <li><a class="dropdown-item" href="Multi-Feature-Website-main/Intermediate_projects.html">Intermediate projects</a></li>
+                  <li><a class="dropdown-item" href="Add_project.html">Add a project</a></li>
+                  <li><a class="dropdown-item" href="New_project.html">New project</a></li>
+
+                  <!-- <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="member.html">Become a member</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="connect.html">Connect</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact us</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sign-In
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" section id="whenSignedOut">
+                      <button id="signInBtn" class="btn btn-primary">Sign in with Google</button>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" section id="whenSignedIn" hidden="true">
+                      <div id="userDetails"></div>
+                      <button id="signOutBtn" class="btn btn-primary">Sign Out</button>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: white;">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    
+    </header>
+</head>
+
+<body>
+    <div class="container mt-3">
+
+        <!-- <div class="alert alert-success d-flex align-items-center" id = "alert" role="alert" style="display: none" ;>
+            <div>
+                Form Submitted Successfully!
+            </div>
+          </div> -->
+        <hr><!--used to add a horizontal line -->
+        <h3>Add Your Project!</h3>
+        <hr>
+        <form class="row g-3 needs-validation" id="AddProjectForm" novalidate>
+
+            <div class="col-md-3">
+                <label for="project-level" class="form-label">Level of Project</label>
+                <select class="form-select" id="project-level" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid option.
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="project-name" class="form-label">Enter Project Name</label>
+                <input type="text" class="form-control" id="project-name" placeholder="Project_Name" value="" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="project-link" class="form-label">Enter project Link</label>
+                <input type="url" class="form-control" id="project-link" placeholder="https://www.example.com" value=""
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="link-field" class="form-label">Enter Source code</label>
+                <input type="url" class="form-control" id="githubLink"
+                    placeholder="https://github.com/username/repository" value="" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="material" class="form-label fs-5">Enter Reference Material</label>
+                <textarea name="material" class="form-control" id="material" rows="2"
+                    placeholder="Title: https://www.example.com">
+                </textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="image-upload" class="form-label">Upload Image</label>
+                <input id="image-upload" type="file" name="image" accept="image/*" placeholder="Choose an image">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script> -->
+</body>
+
+</html>

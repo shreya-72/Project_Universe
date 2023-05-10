@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Website Preview and Editor</title>
+	<style>
+		.preview-container {
+			height: 400px;
+			width: 100%;
+			border: 1px solid black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.editor-container {
+			height: 300px;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		textarea {
+			height: 200px;
+			width: 30%;
+			margin: 0 10px;
+			font-size: 16px;
+			padding: 10px;
+			border: 1px solid black;
+			border-radius: 5px;
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="preview-container">
+		<div id="preview"></div>
+	</div>
+	<div class="editor-container">
+		<textarea id="html" placeholder="Enter HTML here"></textarea>
+		<textarea id="css" placeholder="Enter CSS here"></textarea>
+		<textarea id="js" placeholder="Enter JavaScript here"></textarea>
+	</div>
+    <script>
+      var html = document.getElementById("html");
+      var css = document.getElementById("css");
+      var js = document.getElementById("js");
+      var preview = document.getElementById("preview");
+
+     const urlParams = new URLSearchParams(window.location.search);
+     const projectId = urlParams.get('project');
+console.log(projectId)
+
+
+     
+
+
+
+		// Fetch the contents of the text file
+		fetch(`${projectId}/${projectId}.html`)
+			.then(response => {
+    if (!response.ok) {
+      // If file is not found, leave text area empty
+      return '';
+    }
+    return response.text();
+  })
+			.then(data => {
+				// Set the contents of the text area to the text from the file
+				document.getElementById("html").value = data;
+				updatePreview();
+			})
+			
+
+		fetch(`${projectId}/${projectId}.css`)
+			.then(response => {
+    if (!response.ok) {
+      // If file is not found, leave text area empty
+      return '';
+    }
+    return response.text();
+  })
+			.then(data => {
+				// Set the contents of the text area to the text from the file
+				document.getElementById("css").value = data;
+				updatePreview();
+			})
+			.catch(error => {
+				console.error(error);
+			});
+		
+		fetch(`${projectId}/${projectId}.js`)
+			.then(response => {
+    if (!response.ok) {
+      // If file is not found, leave text area empty
+      return '';
+    }
+    return response.text();
+  })
+			.then(data => {
+				// Set the contents of the text area to the text from the file
+				document.getElementById("js").value = data;
+				updatePreview();
+			})
+			.catch(error => {
+				console.error(error);
+			});
+
+      function updatePreview() {
+        var script = document.createElement("script");
+        script.textContent = js.value;
+        preview.innerHTML = html.value + "<style>" + css.value + "</style>";
+        preview.appendChild(script);
+      }
+
+      html.addEventListener("input", updatePreview);
+      css.addEventListener("input", updatePreview);
+      js.addEventListener("input", updatePreview);
+    </script>
+</body>
+</html>
