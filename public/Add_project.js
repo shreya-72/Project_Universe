@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getDatabase, ref, push, child } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
 
 const alert = document.getElementById('alert');
@@ -25,11 +26,19 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const projectDetailsRef = ref(database, "projectDetails");
+  const auth = getAuth(app);
+
 
 
 form.addEventListener("submit",(e)=>{
     
   e.preventDefault();
+  
+  
+  const user = auth.currentUser;
+  // const user = currentUser(auth);
+  // const user = firebase.auth().currentUser;
+  const uid = user.uid;
   
   const ProjectLevel = document.getElementById('project-level').value;
   const ProjectName = document.getElementById('project-name').value;
@@ -60,7 +69,7 @@ form.addEventListener("submit",(e)=>{
 
 // })
 
-push(projectDetailsRef,{
+push(child(projectDetailsRef, uid),{
   ProjectLevel: ProjectLevel,
   ProjectName: ProjectName,
   ProjectLink: ProjectLink,
@@ -70,5 +79,8 @@ push(projectDetailsRef,{
 }).then(() => {
   console.log(ProjectLevel, ProjectName, ProjectLink, GitHubLink, Material, Image);
   form.reset();
+})
+.catch((error) => {
+  console.log(error);
 });
 })
