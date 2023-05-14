@@ -1,93 +1,55 @@
-    var stdNo = 0;
-    var tbody = document.getElementById("tbody1");
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 
-    function AddItemToTable(ProjectLevel,ProjectName,ProjectLink, GitHubLink, Material,Image){
-        let tr = document.createElement("tr");
-        let td1 = document.createElement("td");
-        let td2 = document.createElement("td");
-        let td3 = document.createElement("td");
-        let td4 = document.createElement("td");
-        let td5 = document.createElement("td");
-        let td6 = document.createElement("td");
-        let td7 = document.createElement("td");
+const firebaseConfig = {
+    // Your Firebase project configuration
+    apiKey: "AIzaSyDY9QB_Ds68b_kYMNXsQzJAt_1QBq_LHDs",
+    authDomain: "projectuniverse-1810d.firebaseapp.com",
+    databaseURL: "https://projectuniverse-1810d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "projectuniverse-1810d",
+    storageBucket: "projectuniverse-1810d.appspot.com",
+    messagingSenderId: "619672181489",
+    appId: "1:619672181489:web:c496ec07368d7a09026750",
+    measurementId: "G-THSNKG0G3L"
+  };
 
-        td1.innerHTML = ++stdNo;
-        td2.innerHTML = ProjectLevel;
-        td3.innerHTML = ProjectName;
-        td4.innerHTML = ProjectLink;
-        td5.innerHTML = GitHubLink;
-        td6.innerHTML = Material;
-        td7.innerHTML = Image;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const projectDetailsRef = ref(db, "projectDetails");
 
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        tr.appendChild(td4);
-        tr.appendChild(td5);
-        tr.appendChild(td6);
-        tr.appendChild(td7);
 
-        tbody.appendChild(tr);
-    }
-
-    function AddItemsToTable(projectDetails){
-        stdNo = 0;
-        tbody.innerHTML = "";
-        projectDetails.forEach(element => {AddItemToTable(element.ProjectLevel, element.ProjectName, element.ProjectLink, element.GitHubLink, element.Material, element.Image)
+function addItemsToTable() {
+    onValue(projectDetailsRef, function(snapshot) {
+      var table = document.getElementById('tbody1');
+      table.innerHTML = ''; 
+     
+      var counter = 1;
+      snapshot.forEach(function(childSnapshot) {
+        var projectData = childSnapshot.val();
+        Object.keys(projectData).forEach(function(key) {
+          var childData = projectData[key];
+          var row = table.insertRow(-1);
+          var srNoCell = row.insertCell(0);
+        var projectLevelCell = row.insertCell(1);
+        var projectNameCell = row.insertCell(2);
+        var projectLinkCell = row.insertCell(3);
+        var githubLinkCell = row.insertCell(4);
+        var materialCell = row.insertCell(5);
+        var imageCell = row.insertCell(6);
+          
+        srNoCell.innerHTML = counter;
+          projectLevelCell.innerHTML = childData.ProjectLevel;
+          projectNameCell.innerHTML = childData.ProjectName;
+          projectLinkCell.innerHTML = childData.ProjectLink;
+          githubLinkCell.innerHTML = childData.GitHubLink;
+          materialCell.innerHTML = childData.Material;
+          imageCell.innerHTML = childData.Image;
+          counter++;
         });
-    }
-    
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
-    import {getFirestore, collection, onSnapshot} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
-    import{getDatabase, ref, child, onValue, get} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDY9QB_Ds68b_kYMNXsQzJAt_1QBq_LHDs",
-        authDomain: "projectuniverse-1810d.firebaseapp.com",
-        databaseURL: "https://projectuniverse-1810d-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "projectuniverse-1810d",
-        storageBucket: "projectuniverse-1810d.appspot.com",
-        messagingSenderId: "619672181489",
-        appId: "1:619672181489:web:c496ec07368d7a09026750",
-        measurementId: "G-THSNKG0G3L"
-
-      };
-      
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getDatabase();
-//   const db = getFirestore(app);
-
-
-function GetAllDataRealtime(){
-    const dbRef = ref(db);
-
-    get(child(dbRef, "projectDetails"))
-    .then((snapshot) => {
-
-        var projects = [];
-        
-        snapshot.forEach((childSnapshot) => {
-            projects.push(childSnapshot.val());
-        });
-        AddItemsToTable(projects);
+      });
     });
-}
-//     onValue(dbRef, (snapshot)=>{
-
-//                 var projects = [];
-        
-//         snapshot.forEach((childSnapshot) => {
-//             projects.push(childSnapshot.val());
-//         });
-//         AddItemsToTable(projects);
-
-
-//     })
-// }
-
-window.onload = GetAllDataRealtime;
+  }
+  window.onload = addItemsToTable;
+  
 
