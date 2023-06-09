@@ -20,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
+
 const whenSignedIn = document.getElementById('whenSignedIn');
 const whenSignedOut = document.getElementById('whenSignedOut');
 const signInBtn = document.getElementById('signInBtn');
@@ -30,6 +31,7 @@ const thingsList = document.getElementById('thingsList');
 
 function onSignIn() {
   location.href = "Home.html";
+
 }
 
 function onSignOut() {

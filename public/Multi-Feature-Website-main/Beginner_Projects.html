@@ -5,9 +5,9 @@
     <title>Beginner Level Projects</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../images/icon.png">
+    <title>Project Universe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
 
     <style>
         h1 {
@@ -17,8 +17,8 @@
         }
 
         .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            grid-template-columns:1fr; 
             grid-gap: 20px;
             padding: 20px;
         }
@@ -45,27 +45,23 @@
     
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../Home.html">Home</a>
+              <a class="nav-link" aria-current="page" href="Home.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../about.html">About us</a>
+              <a class="nav-link" href="about.html">About us</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Projects
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Beginner_Projects.html">Beginner projects</a></li>
+                <li><a class="dropdown-item" href="Multi-Feature-Website-main/Beginner_Projects.html">Beginner projects</a></li>
                 <li><a class="dropdown-item" href="Intermediate_projects.html">Intermediate projects</a></li>
-                <li><a class="dropdown-item" href="Add_project.html">Add a project</a></li>
-                <li><a class="dropdown-item" href="New_Project.html">New project</a></li>
+                <li><a class="dropdown-item" href="../Add_project.html">Add a project</a></li>
+                <li><a class="dropdown-item" href="../New_Project.html">New project</a></li>
 
                 <!-- <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li> -->
@@ -101,10 +97,6 @@
             </li>
 
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: white;">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -114,129 +106,420 @@
 
 <body>
     <!-- <h1>Multi-Feature Website</h1> -->
-    <div class="container" style = "padding: 10px;">
+    <div class="row row-cols-1 " style = "padding: 10px;">
     <div class="card" style="width: 18rem; padding:10px ;">
         <a href="editor.html"><img src="Images/editor.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Code Playground</h5></a>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text"></p>
         </div>
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionExample1">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
                   Source code
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div id="collapseOne1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
                 <div class="accordion-body">
-                    <p>View Source Code: <a href=""></a></p>
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Multi-Feature-Website/blob/main/editor.html">Source Code</a></p>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
                    Study material
                 </button>
               </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div id="collapseTwo1" class="accordion-collapse collapse" data-bs-parent="#accordionExample11">
                 <div class="accordion-body">
-                    <p><a href="https://codepen.io/">CodePen</a>: a popular online code playground<br>
-                        <a href="https://jsfiddle.net/">JSFiddle</a>: another popular online code playground<br>
+                    <p>
                         <b>Youtube Links<br></b>
-                        <a href="https://www.youtube.com/watch?v=ZKXv_ZHQ654">CodePen Tutorial by Brad Traversy</a><br>
-                        <a href="https://www.youtube.com/watch?v=y4qlL1fn4eM">JSFiddle Tutorial by The Net Ninja</a><br>
+                        <a href="https://youtu.be/tupa5BRHK4Q">How To Make Live Code Editor Using HTML CSS And JavaScript by Easy Tutorials</a><br>
+                        
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
                   Rate/comment
                 </button>
               </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div id="collapseThree1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
                 <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> 
+                  
                 </div>
               </div>
             </div>
           </div>
 
-        <!-- <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
+    
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Multi-Feature-Website/editor.html?project=0001"><img src="Images/project1.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div> -->
+          <h5 class="card-title">Tic-Tac-Toe</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample2">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Multi-Feature-Website/blob/main/0001/0001.html">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/sSLGP-_2gOI">Tic Tac Toe Using only HTML, CSS & JavaScript </a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                <div class="accordion-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+      
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Easy-HTML-Projects/Calculator/calci.html"><img src="Images/project2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Calculator</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample3">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Easy-HTML-Projects/tree/main/Calculator">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo3" aria-expanded="false" aria-controls="collapseTwo3">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo3" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/cGgLHJGyS34">How To Make A Calculator Using HTML CSS And JavaScript</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree3" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                <div class="accordion-body">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Weather-App/"><img src="Images/project4.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Weather App</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample4">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne4" aria-expanded="true" aria-controls="collapseOne4">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne4" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Weather-App">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo4" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/pFvWwFua6mw">Weather App using HTML,CSS and Javascript</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree4" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                <div class="accordion-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Easy-HTML-Projects/ProductSearch/index.html"><img src="Images/project5.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Product Search</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample5">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne5" aria-expanded="true" aria-controls="collapseOne5">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Easy-HTML-Projects/tree/main/ProductSearch">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo5" aria-expanded="false" aria-controls="collapseTwo5">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo5" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/ZFUOC-y4i0s">Create Product Search Engine/Bar/Filter in JavaScript</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree5" aria-expanded="false" aria-controls="collapseThree5">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree5" class="accordion-collapse collapse" data-bs-parent="#accordionExample5">
+                <div class="accordion-body">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+     
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Easy-HTML-Projects/WorldClock/worldclock.html"><img src="Images/project6.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">World Clock</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample6">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne6" aria-expanded="true" aria-controls="collapseOne6">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne6" class="accordion-collapse collapse" data-bs-parent="#accordionExample6">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Easy-HTML-Projects/tree/main/WorldClock">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo6" aria-expanded="false" aria-controls="collapseTwo6">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo6" class="accordion-collapse collapse" data-bs-parent="#accordionExample6">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/sa9weQ3DPTE">Lets Create a World Clock with Alarm Using HTML, CSS & JavaScript</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree6" aria-expanded="false" aria-controls="collapseThree6">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree6" class="accordion-collapse collapse" data-bs-parent="#accordionExample6">
+                <div class="accordion-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+    
+
+      </div>
+    <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Easy-HTML-Projects/AnalogClock/analog.html"><img src="Images/project8.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Analog Clock</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample7">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne7" aria-expanded="true" aria-controls="collapseOne7">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne7" class="accordion-collapse collapse" data-bs-parent="#accordionExample7">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Easy-HTML-Projects/tree/main/AnalogClock">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo7" aria-expanded="false" aria-controls="collapseTwo7">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo7" class="accordion-collapse collapse" data-bs-parent="#accordionExample7">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/9DxdE__m_LA">I Created an Analog Clock Using Pure HTML, CSS and JavaScript</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree7" aria-expanded="false" aria-controls="collapseThree7">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree7" class="accordion-collapse collapse" data-bs-parent="#accordionExample7">
+                <div class="accordion-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+      
+
+      </div>
+      <div class="card" style="width: 18rem; padding:10px ;">
+        <a href="https://satviknalavade.github.io/Easy-HTML-Projects/ToDoList/index.html"><img src="Images/project10.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">To Do List</h5></a>
+          <p class="card-text"></p>
+        </div>
+        <div class="accordion" id="accordionExample8">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne8" aria-expanded="true" aria-controls="collapseOne8">
+                  Source code
+                </button>
+              </h2>
+              <div id="collapseOne8" class="accordion-collapse collapse" data-bs-parent="#accordionExample8">
+                <div class="accordion-body">
+                    <p>View Source Code: <a href="https://github.com/SatvikNalavade/Easy-HTML-Projects/tree/main/ToDoList">Source Code</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo8" aria-expanded="false" aria-controls="collapseTwo8">
+                   Study material
+                </button>
+              </h2>
+              <div id="collapseTwo8" class="accordion-collapse collapse" data-bs-parent="#accordionExample8">
+                <div class="accordion-body">
+                    <p>
+                        <b>Youtube Links<br></b>
+                        <a href="https://youtu.be/G0jO8kUrg-I">How To Create To-Do List App Using HTML CSS And JavaScrip</a><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree8" aria-expanded="false" aria-controls="collapseThree8">
+                  Rate/comment
+                </button>
+              </h2>
+              <div id="collapseThree8" class="accordion-collapse collapse" data-bs-parent="#accordionExample8">
+                <div class="accordion-body">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
 
       </div>
       </div>
 
 
-    <div class="container">
-        <div class="project">
-            <a href="editor.html">
-                <img src="Images/editor.jpg" alt="Editor Image">
-                <h3>Code Playground</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="editor.html?project=0001">
-                <img src="Images/project1.png" alt="Project 1 Preview">
-                <h3>Tic-Tac-Toe</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="editor.html?project=0002">
-                <img src="Images/project2.png" alt="Project 2 Preview">
-                <h3>Calculator</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Weather-App/">
-                <img src="Images/project4.png" alt="Project 4 Preview">
-                <h3>Weather App</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Easy-HTML-Projects/ProductSearch/index.html">
-                <img src="Images/project5.png" alt="Project 5 Preview">
-                <h3>Product Search</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Easy-HTML-Projects/WorldClock/worldclock.html">
-                <img src="Images/project6.png" alt="Project 6 Preview">
-                <h3>World Clock</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Easy-HTML-Projects/Calculator/calci.html">
-                <img src="Images/project7.png" alt="Project 7 Preview">
-                <h3>Calculator</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Easy-HTML-Projects/AnalogClock/analog.html">
-                <img src="Images/project8.png" alt="Project 8 Preview">
-                <h3>Analog Clock</h3>
-            </a>
-        </div>
-        <div class="project">
-            <a href="https://satviknalavade.github.io/Easy-HTML-Projects/ToDoList/index.html">
-                <img src="Images/project10.png" alt="Project 10 Preview">
-                <h3>To-Do List</h3>
-            </a>
-        </div>
-        <!-- Add more project divs as needed -->
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>

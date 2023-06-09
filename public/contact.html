@@ -1,4 +1,7 @@
 <!-- responsive.....adabtable to any device -->
+
+<!-- database- https://docs.google.com/spreadsheets/d/1mEs22Mwx77uFKzyAgPrfWP5zTDJZ1A-Ib4of8azw7vQ/edit#gid=0 -->
+
 <!doctype html>
 <html lang="en">
 
@@ -6,21 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact</title>
-    <link rel="icon" href="../public/images/icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
         <header class="site-header sticky-top py-1">
           <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
             <div class="container-fluid">
-              
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="Home.html">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="about.html">About us</a>
@@ -46,7 +44,7 @@
                     <a class="nav-link" href="connect.html">Connect</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact us</a>
+                    <a class="nav-link active" href="contact.html">Contact us</a>
                   </li>
                   
                   <li class="nav-item dropdown">
@@ -85,49 +83,52 @@
         <hr><!--used to add a horizontal line -->
         <h3>Contact us for any Query</h3>
         <hr>
-        <form class="row g-3">
+        <form class="row g-3 submit-to-google-sheets">
             <div class="col-md-6">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" name="Name">
             </div>
             <div class="col-md-6">
                 <label for="RFC" class="form-label">Reason for Contacting</label>
-                <input type="text" class="form-control" id="reason">
+                <input type="text" class="form-control" id="reason" name="Reason">
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <input type="email" class="form-control" id="inputEmail4" name="Email">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <input type="password" class="form-control" id="inputPassword4" name="Password">
             </div>
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="inputAddress" name="Address" placeholder="1234 Main St">
             </div>
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="inputAddress2" name="Address2" placeholder="Apartment, studio, or floor">
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" name="City">
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" name = "State">
                     <option selected>Choose...</option>
-                    <option>...</option>
+                    <option>Maharashtra</option>
+                    <option>Gujarat</option>
+                    <option>Goa</option>
+
                 </select>
             </div>
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <input type="text" class="form-control" id="inputZip" name="Zip">
             </div>
             <div class="col-12">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" name = "Checkbox">
                     <label class="form-check-label" for="gridCheck">
                         Check me out
                     </label>
@@ -142,6 +143,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+
+	<script>
+        const url = `https://script.google.com/macros/s/AKfycbyP5jHpb1fM_AJ2j5t8U2Avo0Z2wD5D-B0YAnBq6eomr4tpGHxfjj6LjuQHVllKVonH/exec`
+        const form = document.querySelector(".submit-to-google-sheets")
+        form.addEventListener(`submit`,function(e){
+            e.preventDefault()
+            fetch(url, { method: 'POST', body: new FormData(form)})
+            .then(res => {
+                alert("message sent successfully!!")
+                setTimeout(function(){
+                    
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        });
+    </script>
+
 </body>
 
 </html>

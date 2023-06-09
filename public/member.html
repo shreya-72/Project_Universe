@@ -1,12 +1,13 @@
 <!-- responsive.....adabtable to any device -->
+
+<!-- database - https://docs.google.com/spreadsheets/d/1F00nQRa83YBT5gJ3n4E2MNkRQZn58G38Th7SE95S7BA/edit#gid=0 -->
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Become a member</title>
-    <link rel="icon" href="../public/images/icon.png">
+    <title>Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <script src="member.js"></script>   
@@ -14,14 +15,10 @@
         
           <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
             <div class="container-fluid">
-              
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="Home.html">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="about.html">About us</a>
@@ -41,7 +38,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="member.html">Become a member</a>
+                    <a class="nav-link active" href="member.html">Become a member</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="connect.html">Connect</a>
@@ -84,17 +81,17 @@
         <hr><!--used to add a horizontal line -->
         <h3>Join the Community!</h3>
         <hr>
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation submit-to-google-sheets" novalidate>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">First name</label>
-              <input type="text" class="form-control" id="validationCustom01" value="" required>
+              <input type="text" class="form-control" id="validationCustom01" value="" required name="FirstName">
               <div class="valid-feedback">
                 Looks good!
               </div>
             </div>
             <div class="col-md-4">
               <label for="validationCustom02" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="validationCustom02" value="" required>
+              <input type="text" class="form-control" id="validationCustom02" value="" required name = "LastName">
               <div class="valid-feedback">
                 Looks good!
               </div>
@@ -103,7 +100,7 @@
               <label for="validationCustomUsername" class="form-label">Username</label>
               <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required name="Username">
                 <div class="invalid-feedback">
                   Please choose a username.
                 </div>
@@ -111,14 +108,14 @@
             </div>
             <div class="col-md-6">
               <label for="validationCustom03" class="form-label">City</label>
-              <input type="text" class="form-control" id="validationCustom03" required>
+              <input type="text" class="form-control" id="validationCustom03" required name="City">
               <div class="invalid-feedback">
                 Please provide a valid city.
               </div>
             </div>
             <div class="col-md-3">
               <label for="validationCustom04" class="form-label">State</label>
-              <select class="form-select" id="validationCustom04" required>
+              <select class="form-select" id="validationCustom04" required name="State">
                 <option selected disabled value="">Choose...</option>
                 <option>Maharashtra</option>
                 <option>Goa</option>
@@ -131,7 +128,7 @@
             </div>
             <div class="col-md-3">
               <label for="validationCustom05" class="form-label">Pincode</label>
-              <input type="text" class="form-control" id="validationCustom05" required>
+              <input type="text" class="form-control" id="validationCustom05" required name="Pincode">
               <div class="invalid-feedback">
                 Please provide a valid pincode
               </div>
@@ -157,6 +154,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    
+        <script>
+          const url = `https://script.google.com/macros/s/AKfycbx5vTiKbOvjj1ftXUn1dt1yq9uonmusmEgt6jzwnY7RXsR_t6QH66q8rxxpveZHKyr2Ww/exec`
+          const form = document.querySelector(".submit-to-google-sheets")
+          form.addEventListener(`submit`,function(e){
+              e.preventDefault()
+              fetch(url, { method: 'POST', body: new FormData(form)})
+              .then(res => {
+                  alert("message sent successfully!!")
+                  setTimeout(function(){
+                      
+                  },5000)
+                  form.reset()
+              })
+              .catch(error => console.error('Error!', error.message))
+          });
+    </script>
 </body>
 
 </html>

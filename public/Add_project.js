@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getDatabase, ref, push, child } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { getAuth, sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
 
 const alert = document.getElementById('alert');
@@ -76,11 +76,35 @@ push(child(projectDetailsRef, uid),{
   GitHubLink: GitHubLink,
   Material: Material,
   Image: Image
-}).then(() => {
+})
+// .then(() => {
+//   console.log(ProjectLevel, ProjectName, ProjectLink, GitHubLink, Material, Image);
+//   form.reset();
+// })
+
+.then(() => {
   console.log(ProjectLevel, ProjectName, ProjectLink, GitHubLink, Material, Image);
   form.reset();
+
+  // Send verification email
+  sendEmailVerification(user)
+    .then(() => {
+      // Redirect to verification page or show success message
+      window.location.href = "New_Project.html";
+    })
+    .catch((error) => {
+      console.log("Error sending verification email:", error);
+      // Show error message to the user
+    });
 })
-.catch((error) => {
-  console.log(error);
-});
+
+// .catch((error) => {
+//   console.log(error);
+// });
+// })
+
 })
+
+
+
+
